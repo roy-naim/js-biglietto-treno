@@ -6,6 +6,6 @@ var age = prompt("How old are you?")
 
 var price = 0.21;
 
-var final = kilometers * age;
+var final = kilometers * price;
 
 console.log(final);
