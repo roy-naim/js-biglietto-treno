@@ -1,9 +1,9 @@
 alert("Welcome to InterTrain. Please enter your detalils to check your ticket final price. Thank you.");
 
-var kilometers = prompt("How many km you need to travel?");
-
-var age = parseInt(prompt("How old are you?"));
-
+var kilometers = Number(prompt("How many km you need to travel?"));
+//parseFloat
+var age = Number(prompt("How old are you?"));
+//parseInt
 var price = 0.21;
 
 var final = kilometers * price;
@@ -12,10 +12,16 @@ var final = kilometers * price;
 //
 // alert("Your Final Ticket price is " + final + "€");
 
-if (age < 18) {
-  alert("Your Final Ticket price is " + (final - ((final * 20) /100) + "€"));
+console.log(age, kilometers);
+
+if (isNaN(age)) {
+  alert("ERROR! Please correct your age.");
+} else if (age < 18) {
+  finalPrice = Math.ceil((final - ((final * 20) /100)));
 } else if (age > 65) {
-  alert("Your Final Ticket price is " + (final - (final * 40) /100 + "€"))
+  finalPrice = Math.ceil((final - ((final * 40) /100)));
 } else {
-  alert("Your Final Ticket price is " + final + "€")
+  finalPrice = Math.ceil(final) ;
 }
+
+document.getElementById('intertrain') .innerHTML = "Your Final Ticket price is " + finalPrice + "€";
